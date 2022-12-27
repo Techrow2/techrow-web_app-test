@@ -1,0 +1,39 @@
+{
+  "name": "techrow-web_app-test-1",
+  "version": "1.0.0",
+  "description": "Getting started \r npm init \r -\r npm install cypress --save-dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx  cypress run mochawesome-merge cypress/results/json/*.json > index.json mochawesome-merge cypress/results/json/*.json > index.json --record --key 8876db29-ae5f-40ec-bebb-823faf52706a  --browser chrome --headed --spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Techrow2/techrow-web_app-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Techrow2/techrow-web_app-test/issues"
+  },
+  "homepage": "https://github.com/Techrow2/techrow-web_app-test#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^10.11.0",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.2.3",
+    "cypress-multi-reporters": "^1.6.1",
+    "cypress-slack-reporter": "^1.5.0",
+    "mocha": "^10.1.0",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "dependencies": {
+    "extract-zip": "^2.0.1",
+    "is-ci": "^3.0.1",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.8",
+    "sshpk": "^1.17.0",
+    "uuid": "^8.3.2",
+    "which": "^2.0.2"
+  }
+}
