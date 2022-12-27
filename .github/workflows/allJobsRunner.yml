@@ -1,0 +1,82 @@
+name: Cypress tests
+on: [push]
+jobs:
+  cypress-run:
+    name: Run all jobs
+    runs-on: ubuntu-20.04
+    env:
+        Check: 0
+        Status: success
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run all tests
+        uses: cypress-io/github-action@v4
+        with:
+          spec: cypress/e2e/
+          browser: chrome
+          headed: true
+          record: true
+          build: npx cypress info
+        env: 
+            CYPRESS_RECORD_KEY: 8876db29-ae5f-40ec-bebb-823faf52706a
+            GITHUB_TOKEN: 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
+      - name: Check run test
+        if: failure()
+        run: |
+           echo "Status=failure" >> $GITHUB_ENV
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+      # Test run video was always captured, so this action uses "always()" condition
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-report
+          path: cypress/reports/index.html
+      - name: Deploy to GitHub Pages
+        if: always()
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: cypress/reports
+        env:
+          GITHUB_TOKEN: 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
+      - name : Slack Notify
+        if: always()
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          channel-id: 'C0496CU72KV'
+    # For posting a rich message using Block Kit
+          payload: |
+            {
+            "blocks": [
+            {
+              "type": "section",
+              "text": {
+                  "type": "mrkdwn",
+                  "text": "GitHub Action  Have : ${{ env.Status }} test"
+              }
+            },
+            {
+              "type": "actions",
+              "block_id": "actionblock789",
+              "elements": [
+                {
+                  "type": "button",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "View report"
+                  },
+                  "value": "click",
+                  "url": "https://techrow2.github.io/techrow-web_app-test/",
+                  "action_id": "button"
+                }
+              ]
+            }
+            ]
+            }            
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.TOKEN }}
