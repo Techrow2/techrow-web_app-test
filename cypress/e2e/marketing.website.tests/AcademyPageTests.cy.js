@@ -8,12 +8,12 @@ describe('Academy Page tests', () => {
         Actions.BasicActions.visitPage(Constants.MARKETING_PAGE_URL);
     })
 
-    it('Visit Academy Page', () => {
+    it('Verify Academy page elements', () => {
         MarketingSitePages.MarketingPage.navigateToAcademyPage('TechRow Academy');
 
-        MarketingSitePages.AcademyPage.checkAcademyPageHeader();
+        MarketingSitePages.MarketingPage.checkMarketingPageHeader();
         MarketingSitePages.AcademyPage.checkAcademyPageBody();
-        MarketingSitePages.AcademyPage.checkAcademyPageContactForm();
-        MarketingSitePages.AcademyPage.checkAcademyPageFooter();
+        MarketingSitePages.MarketingPage.checkContactForm();
+        MarketingSitePages.MarketingPage.checkMarketingPageFooter();
     })
 })

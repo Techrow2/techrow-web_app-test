@@ -1,4 +1,4 @@
-import Actions from "../actions/Actions"
+import Actions from "../actions/Actions";
 import Constants from "../constanst/Constants";
 
 const { generateUser } = require('../support/user.generator');
@@ -11,7 +11,7 @@ describe("Sign Up tests", () => {
         Actions.BasicActions.visitPage(Constants.SIGN_UP_URL);
     })
     
-    it('Create account for school use test', () => {
+    it.only('Create account for school use test', () => {
         const user = generateUser();
         const firstName = user.firstName;
         const lastName = user.lastName;

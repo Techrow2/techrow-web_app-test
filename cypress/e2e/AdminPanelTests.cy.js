@@ -1,6 +1,6 @@
 import Actions from "../actions/Actions";
 import Constants from "../constanst/Constants";
-import Pages from "../page.objects/Pages"
+import Pages from "../page.objects/Pages";
 
 const name = 'Kyiv School';
 const code = 'QWERT';
@@ -44,5 +44,11 @@ describe('Admin Panel page tests', () => {
         Pages.AdminPage.verifyDeletedSchoolNotExist(name, code, address, city, district, state, zipCode, taxeid, domain);
         Pages.AdminPage.clickOnLogoutLink();
         Actions.BasicActions.verifyUrl('/admin/login');
+    })
+
+    it.only('Verify Manage assets functionality', () => {
+        Pages.AdminPage.navigateTo('Manage Assets');
+        Actions.AdminPageActions.verifyAssetsPage();
+        Actions.BasicActions.verifyAlertMessage('Asset has been updated successfully');
     })
 })

@@ -2,18 +2,17 @@ import Actions from "../../actions/Actions";
 import Constants from "../../constanst/Constants";
 import MarketingSitePages from "../../page.objects/marketing.website/MarketingSitePages";
 
-describe('Stream page tests', () => {
-
+describe('Higher Education page tests', () => {
     before(() => {
         Actions.BasicActions.visitPage(Constants.MARKETING_PAGE_URL);
     })
 
-    it('Verify Stream page elements', () => {
-        MarketingSitePages.MarketingPage.navigateToHeader('TechRow Stream');
-        Actions.BasicActions.verifyUrl('/techrow-stream/');
-        
+    it('Verify Higher Education page elements', () => {
+        MarketingSitePages.MarketingPage.navigateToFooter('Higher Education');
+        Actions.BasicActions.verifyUrl('/higher-education/');
+
         MarketingSitePages.MarketingPage.checkMarketingPageHeader();
-        MarketingSitePages.StreamPage.checkStreamPageBody();
+        MarketingSitePages.HigherEducationPage.checkHigherEducationPageBody();
         MarketingSitePages.MarketingPage.checkContactForm();
         MarketingSitePages.MarketingPage.checkMarketingPageFooter();
     })

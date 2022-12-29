@@ -8,13 +8,13 @@ describe('K-12 Page tests', () => {
         Actions.BasicActions.visitPage(Constants.MARKETING_PAGE_URL);
     })
 
-    it('K-12 Page elements tests', () => {
+    it('Verify K-12 page elements', () => {
         MarketingSitePages.MarketingPage.navigateToFooter('K-12');
         Actions.BasicActions.verifyUrl('/k-12/')
         
-        MarketingSitePages.K12Page.checkK12PageHeader();
+        MarketingSitePages.MarketingPage.checkMarketingPageHeader();
         MarketingSitePages.K12Page.checkK12PageBody();
-        MarketingSitePages.K12Page.checkK12PageContactForm();
-        MarketingSitePages.K12Page.checkK12PageFooter();
+        MarketingSitePages.MarketingPage.checkContactForm();
+        MarketingSitePages.MarketingPage.checkMarketingPageFooter();
     })
 })

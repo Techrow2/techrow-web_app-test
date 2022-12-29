@@ -16,14 +16,6 @@ class AboutUsPage {
         NEWS_SECTION_CONTENT_TITLE: () => cy.get('div.BlogList_TabDetail__QIPu1')
     }
 
-    checkAboutUsPageHeader() {
-        this.marketingPage.checkMarketingPageHeader();
-    }
-
-    checkAboutUsPageFooter() {
-        this.marketingPage.checkMarketingPageFooter();
-    }
-
     checkAboutUsPageBody() {
         this.bodyElements.PAGE_INTRODUCTION()
             .should('contain.text', pageTitleDescription);

@@ -1,5 +1,6 @@
 import AboutUsPage from "./AboutUsPage";
 import AcademyPage from "./AcademyPage";
+import HigherEducationPage from "./HigherEducationPage";
 import K12Page from "./K-12Page";
 import MarketingPage from "./MarketingPage";
 import PartnerPage from "./PartnerPage";
@@ -16,6 +17,7 @@ class MarketingSitePages {
     static PartnerPage = new PartnerPage();
     static AboutUsPage = new AboutUsPage();
     static K12Page = new K12Page();
+    static HigherEducationPage = new HigherEducationPage();
 }
 
 export default MarketingSitePages;

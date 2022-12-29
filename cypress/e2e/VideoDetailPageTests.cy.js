@@ -1,6 +1,6 @@
 import Actions from "../actions/Actions";
-import Constants from "../constanst/Constants"
-import Pages from "../page.objects/Pages"
+import Constants from "../constanst/Constants";
+import Pages from "../page.objects/Pages";
 
 describe("Detail page tests", () => {
 

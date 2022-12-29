@@ -1,4 +1,4 @@
-import Constants from "../constanst/Constants"
+import Constants from "../constanst/Constants";
 import Actions from "../actions/Actions";
 
 describe("Landing Page tests", () => {
@@ -9,7 +9,7 @@ describe("Landing Page tests", () => {
         Actions.LoginPageActions.login(Constants.validLoginEmail, Constants.validLoginPassword);
     })
 
-    it("Verify Landing Page functionality", () => {
+    it("Verify Landing page functionality", () => {
         Actions.BasicActions.verifyUrl('/portal/my-library');
         Actions.LandingPageActions.verifyUserNameDropDownList(Constants.validLoginUserName);
 

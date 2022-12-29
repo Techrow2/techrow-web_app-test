@@ -15,14 +15,12 @@ class AdminPageActions extends BassicAction {
     }
 
 
-    verifyAssetsPageAndFunctionality(){
-         Pages.AdminPage.isAddSchoolButtonPresent()
-         Pages.AdminPage.goToManageAssets()
+    verifyAssetsPage() {
          Pages.AdminPage.isSyncronizeButtonPresent()
          Pages.AdminPage.clickByRefactor()
          Pages.AdminPage.isVideoPresent()
          Pages.AdminPage.closeAnimationInCategories()
-         Pages.AdminPage.typeInCategorias("Science")
+         Pages.AdminPage.typeInCategorias("Art")
          Pages.AdminPage.clickByUpdateButton()
     }
 }

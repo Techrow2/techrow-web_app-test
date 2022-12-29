@@ -5,18 +5,6 @@ const productItemTileArray = ['School', 'Households'];
 class AcademyPage {
     marketingPage = new MarketingPage();
 
-    checkAcademyPageHeader() {
-        this.marketingPage.checkMarketingPageHeader();
-    }
-
-    checkAcademyPageFooter() {
-        this.marketingPage.checkMarketingPageFooter();
-    }
-
-    checkAcademyPageContactForm() {
-        this.marketingPage.checkContactForm();
-    }
-
     checkAcademyPageBody() {
         this.marketingPage.bodyElements.PAGE_TITLE().should('contain.text',
             'Tap into a library of innovative courses today');

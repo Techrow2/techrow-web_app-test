@@ -10,7 +10,7 @@ describe('Login page tests', () => {
         Actions.BasicActions.verifyUrl('/auth/login');
     })
 
-    it('Login with correct credentials', () => {
+    it('Verify Login with correct credentials', () => {
         Actions.LoginPageActions.verifyPage();
         Actions.LoginPageActions.login(Constants.validLoginEmail, Constants.validLoginPassword);
         Actions.BasicActions.verifyUrl('/portal/my-library');
@@ -18,13 +18,13 @@ describe('Login page tests', () => {
         Actions.BasicActions.signOut();
     })
 
-    it('Login with incorrect email', () => {
+    it('Verify Login with incorrect email', () => {
         Actions.LoginPageActions.verifyPage();
         Actions.LoginPageActions.login('not' + Constants.validLoginEmail, Constants.validLoginPassword);
         Actions.BasicActions.verifyAlertMessage(invalidEmailMessage);
     })
 
-    it('Login with incorrect password', () => {
+    it('Verify Login with incorrect password', () => {
         Actions.LoginPageActions.verifyPage();
         Actions.LoginPageActions.login(Constants.validLoginEmail, 'not' + Constants.validLoginPassword);
         Actions.BasicActions.verifyAlertMessage(invalidPasswordMessage);

@@ -9,18 +9,6 @@ class VrPage {
         EDUCATION_TYPE: () => cy.get('div.ColumnGrid_CommonDetailWrap__b03fq'),
     }
 
-    checkVrPageHeader() {
-        this.marketinPage.checkMarketingPageHeader();
-    }
-
-    checkVrPageFooter() {
-        this.marketinPage.checkMarketingPageFooter();
-    }
-
-    checkVrPageContactForm() {
-        this.marketinPage.checkContactForm();
-    }
-
     checkVrPageBody() {
         this.marketinPage.bodyElements.PAGE_TITLE().should('contain.text',
             'Unleash the learning power of experience, excursion and immersion with our all-in-one  VR solution');

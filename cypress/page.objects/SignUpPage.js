@@ -120,7 +120,6 @@ class SignUpPage extends BassicPage {
         EXPIRATION_LOCATOR: () => cy.get('input[name="expiration"]'),
         CVV_LOCATOR: () => cy.get('input[name="cvv"]'),
         ZIP_CODE_LOCATOR: () => cy.get('input[name="zipCode"]'),
-
     }
 
     fillPaymentForm(cardNumber, expiration, cvv, zipCode) {
@@ -146,30 +145,10 @@ class SignUpPage extends BassicPage {
         this.confirmInformationElements.START_TRIAL_BUTTON_LOCATOR().click();
     }
     //*******************************************************************************************/
-
-
     
 clickByUsingTechrowForButton(conditions) {
     cy.wait(1700)
     this.get(usingTechrowForButton).contains(conditions).click()
-}
-typePassword(passwordms){
-    this.type(password,passwordms)
-}
-isFirstNameVisible(){
-    this.get(firstName).should("be.visible")
-}
-isLastNameVisible(){
-    this.get(lastName).should("be.visible")
-}
-isEmailVisible(){
-    this.get(email).should("be.visible")
-}
-isPasswordVisible(){
-    this.get(password).should("be.visible")
-}
-isReEnterPasswordVisible(){
-    this.get(reEnterPassword).should("be.visible")
 }
 isChildFirstNameVisible(){
     this.get(childsFirstName).should("be.visible")
@@ -179,15 +158,6 @@ isChildLastNameVisible(){
 }
 isChildsDateOfBirthVisible(){
     this.get(childsDateOfBirth).should("be.visible")
-}
-typeLastName(message){
-    this.type(lastName,message)
-}
-typeFirstName(message){
-    this.type(firstName,message)
-}
-typeEmail(message){
-    this.type(email,message)
 }
 typeReenteredPassword(password){
     this.type(reEnterPassword,password)

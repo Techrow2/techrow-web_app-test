@@ -1,9 +1,5 @@
 import BassicPage from "./BasicPage";
-const schoolList="div.container-fluid",
-listHead="thead th",
-linklist="a.c-sidebar-nav-link",
-createSchoolButton="button.btn",
-deleteSchool="span",
+const deleteSchool="span",
 schoollist1="table tr",
 cancelButton=".swal2-cancel",
 syncronizeButton="button.btn-admin",
@@ -81,6 +77,10 @@ class AdminPage extends BassicPage {
         this.manageSchoolElements.LOGOUT_LINK()
             .should('contain.text', 'Logout').click();
     }
+
+    navigateTo(sidebarLink) {
+        this.manageSchoolElements.SIDEBAR_LINKS().contains(sidebarLink).click();
+    }
 /********************************************************************************************** */
 
 /** Add School Page elements and methods******************************************************* */
@@ -131,97 +131,25 @@ class AdminPage extends BassicPage {
         this.addSchoolElements.BACK_LINK()
             .should('contain.text', 'Back').click();
     }
+/************************************************************************************************* */
 
-/********************************************************************************************** */
+/** Manage Assets Page elements and methods******************************************************* */
+    manageAssetsElements = {
+        EDIT_BUTTON: () => cy.get('tr td a.btn-info'),
+        ASSETS_TABLE_ROW: () => cy.get('tbody tr').first(),
+    }
+
+    getFirstTableRowInfo() {
+        this.manageAssetsElements.ASSETS_TABLE_ROW();
+    }
+/************************************************************************************************* */
 
 
-isSchoolListPresent(){
-    this.get(schoolList).should("be.visible")
-}
-isListHeadElementPresent(){
-    this.get(listHead).each(el=>{
-        expect(el).be.visible
-    })
-}
-goToManageSchool(){
-    this.get(linklist).first().click()
-}
-isLinkListPresent(){
-    this.get(linklist).each(el=>{
-        expect(el).be.visible
-    })
-}
-goToManageAssets(){
-    this.get(linklist).parent().eq(1).click()
-}
-isNameInSchoolPresent(){
-    this.get(nameInAddSchool).should("be.visible")
-}
-isUniqueCodeInSchoolPresent(){
-    this.get(UniqueCode).should("be.visible")
-}
-isAdressInAddSchoolPresent(){
-    this.get(addresInaddschool).should("be.visible")
-}
-isCityInAddSchoolPresent(){
-    this.get(cityInAddSchool).should("be.visible")
-}
-isZipCodeInAddPresent(){
-    this.get(zipCode).should("be.visible")
-}
-isStateInAddSchoolPresent(){
-    this.get(state).should("be.visible")
-}
-isDistrictInAddSchoolPresent(){
-    this.get(district).should("be.visible")
-}
-isTaxexIdInAddSchoolPresent(){
-    this.get(taxexId).should("be.visible")
-}
-isDomainUrlInAddSchoolPresent(){
-    this.get(domainUrl).should("be.visible")
-}
-clickByAddSchool(){
-    this.click(addSchool,"Add School Link")
-}
-clickByBack(){
-    this.click(backLink,"Back Link")
-}
-clickByCreateButton(){
-    this.click(createSchoolButton,"School Button")
-}
-typeName(message){
-    this.type(nameInAddSchool,message)
-}
-typeUniqueCode(code){
-    this.type(UniqueCode,code)
-}
-typeState(st){
-    this.type(state,st)
-}
-typeDomainUrl(url){
-    this.type(domainUrl,url)
-}
-typeZipCode(code){
-    this.type(zipCode,code)
-}
-typeAddress(addrs){
-    this.type(addresInaddschool,addrs)
-}
-typeDistrict(dis){
-    this.type(district,dis)
-}
-typeCity(city){
-    this.type(cityInAddSchool,city)
-}
 deleteSchool2(){
     this.wait(4)
     this.get(schoollist1).contains("Techrow beta").parent("tr").children("td").children(deleteSchool).click()
     this.wait(1)
     this.get(confirmDeleteButton).click()
-}
-isAddSchoolButtonPresent(){
-    this.get(addSchool).should("be.visible")
 }
 cancelDEleteSchool(){
     this.wait(4)
@@ -242,7 +170,7 @@ isVideoPresent(){
     this.get(video).should("be.visible")
 }
 closeAnimationInCategories(){
-    this.get(animationInCategories).contains("Science").children(closeIcon).click()
+    this.get(animationInCategories).contains("Art").children(closeIcon).click()
 }
 clickByUpdateButton(){
     this.click(updateButton,"Update Button")

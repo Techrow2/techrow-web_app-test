@@ -8,7 +8,7 @@ describe("Marketing page tests",() => {
         Actions.BasicActions.visitPage(Constants.MARKETING_PAGE_URL);
     })
 
-    it('Marketing page elements tests', () => {
+    it('Verify Marketing page elements', () => {
         MarketingSitePages.MarketingPage.checkMarketingPageHeader();
         MarketingSitePages.MarketingPage.checkMarketingPageBody();
         MarketingSitePages.MarketingPage.checkContactForm();

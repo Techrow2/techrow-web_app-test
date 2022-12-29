@@ -6,18 +6,6 @@ class StreamPage {
 
     marketingPage = new MarketingPage();
 
-    checkStreamPageHeader() {
-        this.marketingPage.checkMarketingPageHeader();
-    }
-
-    checkStreamPageFooter() {
-        this.marketingPage.checkMarketingPageFooter();
-    }
-
-    checkStreamPageContactForm() {
-        this.marketingPage.checkContactForm();
-    }
-
     checkStreamPageBody() {
         this.marketingPage.bodyElements.PAGE_TITLE().should('contain.text',
             'Stream a world of beautiful educational content today!');

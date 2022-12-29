@@ -7,18 +7,6 @@ const productItemTileArray = ['Great Idea for a Course?',
 class PartnerPage {
     marketingPage = new MarketingPage();
 
-    checkPartnerPageHeader() {
-        this.marketingPage.checkMarketingPageHeader();
-    }
-
-    checkPartnerPageFooter() {
-        this.marketingPage.checkMarketingPageFooter();
-    }
-
-    checkPartnerPageContactForm() {
-        this.marketingPage.checkContactForm();
-    }
-
     checkPartnerPageBody() {
         this.marketingPage.bodyElements.PAGE_TITLE().should('contain.text', 'Partner with TechRow');
         this.marketingPage.bodyElements.CONTACT_US_BUTTON().should('contain.text', 'CONTACT US');

@@ -8,13 +8,13 @@ describe('VR Page tests', () => {
         Actions.BasicActions.visitPage(Constants.MARKETING_PAGE_URL);
     })
 
-    it('VR Page elements tests', () => {
+    it('Verify VR page elements', () => {
         MarketingSitePages.MarketingPage.navigateToHeader('TechRow VR');
         Actions.BasicActions.verifyUrl('/featured-vr-apps/')
 
-        MarketingSitePages.VrPage.checkVrPageHeader();
+        MarketingSitePages.MarketingPage.checkMarketingPageHeader();
         MarketingSitePages.VrPage.checkVrPageBody();
-        MarketingSitePages.VrPage.checkVrPageContactForm();
-        MarketingSitePages.VrPage.checkVrPageFooter();
+        MarketingSitePages.MarketingPage.checkContactForm();
+        MarketingSitePages.MarketingPage.checkMarketingPageFooter();
     })
 })

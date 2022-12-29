@@ -8,12 +8,12 @@ describe('About Us Page tests', () => {
         Actions.BasicActions.visitPage(Constants.MARKETING_PAGE_URL);
     })
 
-    it('About Us Page elements tests', () => {
+    it('Verify About Us page elements', () => {
         MarketingSitePages.MarketingPage.navigateToHeader('About Us');
         Actions.BasicActions.verifyUrl('/about-us/');
         
-        MarketingSitePages.AboutUsPage.checkAboutUsPageHeader();
+        MarketingSitePages.MarketingPage.checkMarketingPageHeader();
         MarketingSitePages.AboutUsPage.checkAboutUsPageBody();
-        MarketingSitePages.AboutUsPage.checkAboutUsPageFooter();
+        MarketingSitePages.MarketingPage.checkMarketingPageFooter();
     })
 })

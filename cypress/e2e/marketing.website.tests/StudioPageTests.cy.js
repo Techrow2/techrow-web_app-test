@@ -8,13 +8,13 @@ describe('Studio Page tests', () => {
         Actions.BasicActions.visitPage(Constants.MARKETING_PAGE_URL);
     })
 
-    it('Studio Page elements tests', () => {
+    it('Verify Studio page elements', () => {
         MarketingSitePages.MarketingPage.navigateToHeader('TechRow Studio');
         Actions.BasicActions.verifyUrl('/techrow-studio/')
 
-        MarketingSitePages.StudioPage.checkStudioPageHeader();
+        MarketingSitePages.MarketingPage.checkMarketingPageHeader();
         MarketingSitePages.StudioPage.checkStudioPageBody();
-        MarketingSitePages.StudioPage.checkStudioPageContactForm();
-        MarketingSitePages.StudioPage.checkStudioPageFooter();
+        MarketingSitePages.MarketingPage.checkContactForm();
+        MarketingSitePages.MarketingPage.checkMarketingPageFooter();
     })
 })

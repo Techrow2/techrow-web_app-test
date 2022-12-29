@@ -5,18 +5,6 @@ const productItemTileArray = ['K-12', 'Higher Education', 'Companies'];
 class StudioPage {
     marketingPage = new MarketingPage();
 
-    checkStudioPageHeader() {
-        this.marketingPage.checkMarketingPageHeader();
-    }
-
-    checkStudioPageFooter() {
-        this.marketingPage.checkMarketingPageFooter();
-    }
-
-    checkStudioPageContactForm() {
-        this.marketingPage.checkContactForm();
-    }
-
     checkStudioPageBody() {
         this.marketingPage.bodyElements.PAGE_TITLE()
             .should('contain.text', 'Create Immersive Content With TechRow Studio Today!');
