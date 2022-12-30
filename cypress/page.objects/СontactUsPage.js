@@ -8,8 +8,7 @@ class ContactUsPage extends BassicPage {
         SUBJECT: () => cy.get('input[name=subject]'),
         MESSAGE: () => cy.get('textarea[name=message]'),
         RECEIVE_LETTER_CHECKBOX: () => cy.get('input[type=checkbox]'),
-        SEND_BUTTON: () => cy.get('button.btn.btn-step'),
-        ERROR_MESSAGE: () => cy.get('div.alert-error-msg')
+        SEND_BUTTON: () => cy.get('button.btn.btn-step')
     }
 
     verifyContactUsElements(title, email) {
@@ -32,22 +31,9 @@ class ContactUsPage extends BassicPage {
         this.elements.MESSAGE().should("be.empty");
     }
 
-    verifyErrorMessages(subjectError, messageError) {
-        this.elements.ERROR_MESSAGE().first().should('contain.text', subjectError);
-        this.elements.ERROR_MESSAGE().last().should('contain.text', messageError);
-    }
-
     clickSendButton() {
         this.elements.SEND_BUTTON().click();
     }
-
-    isErrorPresent(count){
-        this.get(error).should("have.length",count)
-    }
-    isErrorNotPresent(){
-        this.get(error).should("not.exist")
-    }
-
 }
 
 export default ContactUsPage;

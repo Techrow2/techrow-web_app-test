@@ -11,7 +11,6 @@ class SignUpPageActions {
     signUpForPersonalUsage(firstName, lastName, email, password) {
         Pages.SignUpPage.selectPersonalAccount();
         Pages.SignUpPage.fillSignUpFormForPersonalUsage(firstName, lastName, email, password);
-        Pages.SignUpPage.openQaTeamMailPage(firstName + '_' + lastName);
     }
 
     selectAnualPaymentType(cardNumber, expiration, cvv, zipCode, email) {

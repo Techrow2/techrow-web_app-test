@@ -31,11 +31,14 @@ class SignUpPage extends BassicPage {
         this.schoolAccountElements.EMAIL_LOCATOR().type(email);
         this.schoolAccountElements.PASSWORD_LOCATOR().type(password);
         this.schoolAccountElements.REPEAT_PASSWORD_LOCATOR().type(password);
-        this.generalElements.CREATE_ACCOUNT_BUTTON_LOCATOR().click();
     }
 
     selectSchoolAccount() {
         this.schoolAccountElements.SCHOOL_BUTTON_LOCATOR().click();
+    }
+
+    clickCreateAccountButton() {
+        this.generalElements.CREATE_ACCOUNT_BUTTON_LOCATOR().click();
     }
     //*******************************************************************************************/
 
@@ -55,7 +58,6 @@ class SignUpPage extends BassicPage {
         this.personalAccountElements.EMAIL_LOCATOR().type(email);
         this.personalAccountElements.PASSWORD_LOCATOR().type(password);
         this.personalAccountElements.REPEAT_PASSWORD_LOCATOR().type(password);
-        this.generalElements.CREATE_ACCOUNT_BUTTON_LOCATOR().click();
     }
 
     selectPersonalAccount() {
@@ -81,7 +83,6 @@ class SignUpPage extends BassicPage {
         cy.wait(4000);
         this.qaTeamWebsiteElements.QA_TEAM_EMAIL_LOCATOR().click();
         
-
         this.qaTeamWebsiteElements.QA_TEAM_LINK_LOCATOR().invoke('text').then((textFromField) => {
             const email = textFromField.substring(textFromField.indexOf('https'), textFromField.indexOf('=en') + 3);
             const pom = {

@@ -1,10 +1,11 @@
 
 class BasicActions {
 
-    headerElements = {
+    elements = {
         PROFILE_BUTTON: () => cy.get('button#dropdown-basic'),
         ALERT_MESSAGE: () => cy.get('h2.swal2-title'),
         DROPDOWN_ITEM_LINK: () => cy.get('a.dropdown-item'),
+        ERROR_MESSAGE: () => cy.get('div.alert-error-msg')
     }
 
     visitPage(url) {
@@ -17,20 +18,24 @@ class BasicActions {
     }
     
     signOut() {
-        this.headerElements.PROFILE_BUTTON().first().click();
-        this.headerElements.DROPDOWN_ITEM_LINK().contains('Sign out').click({force: true});
+        this.elements.PROFILE_BUTTON().first().click();
+        this.elements.DROPDOWN_ITEM_LINK().contains('Sign out').click({force: true});
         cy.clearCookies();
         cy.clearLocalStorage();
         cy.wait(1000);
     }
 
     verifyAlertMessage(message) {
-        this.headerElements.ALERT_MESSAGE().should('contain.text', message);
+        this.elements.ALERT_MESSAGE().should('contain.text', message);
+    }
+
+    verifyErrorMessage(message) {
+        this.elements.ERROR_MESSAGE().should('contain.text', message);
     }
 
     navigateToPage(page) {
-        this.headerElements.PROFILE_BUTTON().first().click();
-        this.headerElements.DROPDOWN_ITEM_LINK().contains(page).click({force: true}); 
+        this.elements.PROFILE_BUTTON().first().click();
+        this.elements.DROPDOWN_ITEM_LINK().contains(page).click({force: true}); 
     }
 }
 

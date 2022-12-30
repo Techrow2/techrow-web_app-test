@@ -6,8 +6,6 @@ const { generateText } = require('../support/text.generator');
 const info = generateText();
 const title = 'Have a question? Contact us!';
 const alertMessage = 'Thank you for contacting us!';
-const blankSubjectError = 'Subject required';
-const blankMessageError = 'Message required';
 
 describe('Contact Us page tests', () => {
 
@@ -28,12 +26,17 @@ describe('Contact Us page tests', () => {
     })
 
     it('Verify contact us form error messages for blank subject and message fields', () => {
+        const errorMessages = ['Subject required', 'Message required'];
+
         Actions.BasicActions.navigateToPage('Contact Us');
         Actions.BasicActions.verifyUrl('/portal/contact-us');
 
         Pages.ContactUsPage.verifyContactUsElements(title, Constants.validLoginEmail);
         Pages.ContactUsPage.clickSendButton();
-        Pages.ContactUsPage.verifyErrorMessages(blankSubjectError, blankMessageError);
+        for(const error of errorMessages) {
+            Actions.BasicActions.verifyErrorMessage(error);
+        }
+        Actions.BasicActions.verifyUrl('/portal/contact-us');
     })
 
     afterEach(() => {

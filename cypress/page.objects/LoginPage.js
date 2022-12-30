@@ -1,7 +1,6 @@
 import BassicPage from "./BasicPage";
 const emailInput="input#email",
 passwordInput="input#password",
-logginButton="button.yellow-btn",
 errorMessage="div.alert-error-msg",
 signup="p.signup-tag a",
 incorrectPassword="#swal2-title",
@@ -37,6 +36,10 @@ class LoginPage extends BassicPage{
         this.loginFormElements.LOGIN_BUTTON_LOCATOR().should('contain.text', 'Login');
         this.loginFormElements.FORGOT_PASSWORD_LOCATOR().should('contain.text', 'Forgot Password?');
         this.loginFormElements.SIGN_UP_LINK_LOCATOR().should('contain.text', 'Sign Up');
+    }
+
+    clickOnLoginButton() {
+        this.loginFormElements.LOGIN_BUTTON_LOCATOR().click();
     }
 
     isErrorVisible(visibility){
