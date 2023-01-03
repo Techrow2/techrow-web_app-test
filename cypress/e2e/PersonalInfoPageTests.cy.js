@@ -11,10 +11,11 @@ describe('Personal information page tests', () => {
         Actions.LoginPageActions.login(Constants.validLoginEmail, Constants.validLoginPassword);
     })
 
-    it('Verify and update personal information form', () => {Actions.LoginPageActions
+    it('Verify and update personal information form', () => {
         Actions.BasicActions.navigateToPage('Profile');
 
         Actions.PersonalInfoActions.updatePersonalInfo('Ivo', 'Bobul', 'Givi', 'Bobul', '07-Jul-2017');
+        Actions.BasicActions.verifyAlertMessage('User Profile updated successfully!');
         //Change data to default user creds
         Actions.PersonalInfoActions.updatePersonalInfo('Jane', 'Smith', 'Bob', 'Smith', '06-Jul-2018');
     })
@@ -23,6 +24,7 @@ describe('Personal information page tests', () => {
         Actions.BasicActions.navigateToPage('Profile');
 
         Actions.PersonalInfoActions.updateAccountDetails(Constants.validLoginPassword, 'A123456789B');
+        Actions.BasicActions.verifyAlertMessage('Password updated successfully!');
         //Change data to default user creds
         Actions.PersonalInfoActions.updateAccountDetails('A123456789B', Constants.validLoginPassword);
     })
@@ -31,7 +33,6 @@ describe('Personal information page tests', () => {
         const paymentCreds = generatePaymentCreds();
 
         Actions.BasicActions.navigateToPage('Profile');
-
         Actions.PersonalInfoActions.updatePayment(
             paymentCreds.creditCard,
             paymentCreds.expiration,
@@ -42,5 +43,5 @@ describe('Personal information page tests', () => {
 
     afterEach(() => {
         Actions.BasicActions.signOut();
-      })
+    })
 })

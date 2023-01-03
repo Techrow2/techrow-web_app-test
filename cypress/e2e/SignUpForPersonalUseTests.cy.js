@@ -7,6 +7,7 @@ const { generatePaymentCreds } = require('../support/payment.generator');
 
 const signUpAlertMessage = 'Sign up successfully';
 const urlPart = '/auth/signup?step=personalAccount'
+const emailErrorMessage = 'Please enter valid email';
 
 const user = generateUser();
 const firstName = user.firstName;
@@ -59,36 +60,43 @@ describe("Sign Up for Personal Use tests", () => {
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
+    it('Verify Sign Up for Personal Use account with already registered email address', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, 'new_user@1secmail.com', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyAlertMessage('The email address is already in use by another account.');
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+
 /**Negative tests for the FIRST NAME field ******************************************************************* */
-    it('Verify Sign Up for Personal Use account with one character in the "First Name" field', () => {
+    it('Verify registration with one character in the "First Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage('L', lastName, email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('First Name must be at least 2 characters');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with 21 characters in the "First Name" field', () => {
+    it('Verify registration with 21 characters in the "First Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage('Bennybennybennybennyd', lastName, email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('First Name length must not exceed 20 characters');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with digits in the "First Name" field', () => {
+    it('Verify registration with digits in the "First Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage('12345', lastName, email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('First Name must contain alphabets only');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with special symbols in the "First Name" field', () => {
+    it('Verify registration with special symbols in the "First Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage('!@#$%', lastName, email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('First Name must contain alphabets only');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with Cyrillic letters in the "First Name" field', () => {
+    it('Verify registration with Cyrillic letters in the "First Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage('Степан', lastName, email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('First Name must contain alphabets only');
@@ -97,35 +105,35 @@ describe("Sign Up for Personal Use tests", () => {
 /************************************************************************************************************* */
 
 /**Negative tests for the LAST NAME field ******************************************************************** */
-    it('Verify Sign Up for Personal Use account with one character in the "Last Name" field', () => {
+    it('Verify registration with one character in the "Last Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage(firstName, 'L', email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('Last Name must be at least 2 characters');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with 21 characters in the "Last Name" field', () => {
+    it('Verify registration with 21 characters in the "Last Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage(firstName, 'Bennybennybennybennyd', email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('Last Name length must not exceed 20 characters');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with digits in the "Last Name" field', () => {
+    it('Verify registration with digits in the "Last Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage(firstName, '12345', email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('Last Name must contain alphabets only');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with special symbols in the "Last Name" field', () => {
+    it('Verify registration with special symbols in the "Last Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage(firstName, '!@#$%', email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('Last Name must contain alphabets only');
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
-    it('Verify Sign Up for Personal Use account with Cyrillic letters in the "First Name" field', () => {
+    it('Verify registration with Cyrillic letters in the "First Name" field', () => {
         Actions.SignUpPageActions.signUpForPersonalUsage(firstName, 'Гіга', email, password);
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage('Last Name must contain alphabets only');
@@ -133,4 +141,61 @@ describe("Sign Up for Personal Use tests", () => {
     })
 /************************************************************************************************************* */
 
+/**Negative tests for the EMAIL field ************************************************************************   */
+    it('Verify registration using an email without a name', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, '@gmail.com', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+
+    it('Verify registration using an email without the "@" symbol', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, 'new_usergmail.com', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+
+    it('Verify registration using an email with two "@" symbols', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, 'new_@user@gmail.com', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+
+    it('Verify registration using an email without a dot', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, 'new_user@gmailcom', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+
+    it('Verify registration with dot in the end of an email address', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, 'new_user@1secmail.com.', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+    
+    it('Verify registration with dot in the beginning of an email address', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, '.new_user@1secmail.com', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+
+    it('Verify registration with double dot character', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, 'new_user@1secmail..com', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+
+    it('Verify registration using a name with Cyrillic letters', () => {
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, 'новий_юзер@1secmail.com', password);
+        Pages.SignUpPage.clickCreateAccountButton();
+        Actions.BasicActions.verifyErrorMessage(emailErrorMessage);
+        Actions.BasicActions.verifyUrl(urlPart);
+    })
+/************************************************************************************************************* */
 })

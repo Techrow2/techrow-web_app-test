@@ -19,23 +19,6 @@ class PersonalInfo {
         Pages.PersonalInfoPage.updatePlanDetails();
         Pages.PersonalInfoPage.updateBillingInformation(cardNumber, expiration, cvv, zipCode);
     }
-
-    signOut() {
-        Pages.PersonalInfoPage.signOut();
-    }
-
-        // verifyCorrectData(firstName,lastName,email) {
-    //     Pages.PersonalInfoPage
-    //     Pages.PersonalInfoPage.isCorrectFirsName(firstName)
-    //     Pages.PersonalInfoPage.isCorrectLastName(lastName)
-    //     Pages.PersonalInfoPage.isCorrectEmail(email)
-    // }
-
-    // verifySchoolSection(name,code) {
-    //     Pages.PersonalInfoPage.wait(1)
-    //     Pages.PersonalInfoPage.verifyIsSchoolNameCorrect(name)
-    //     Pages.PersonalInfoPage.verifyIsSchoolCodeCorrect(code)
-    // }
 }
 
 export default PersonalInfo;

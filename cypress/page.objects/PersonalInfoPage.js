@@ -4,6 +4,7 @@ class PersonallInfoPage extends BasicActions {
 
 // Selectors and methods to update personal info ******************************************************* */
     personalInfoFormElements = {
+        PROFILE_BUTTON: () => cy.get('button#dropdown-basic'),
         FIRST_NAME: () => cy.get('input#firstname'),
         LAST_NAME: () => cy.get('input#lastname'),
         EMAIL: () => cy.get('input#email'),
@@ -33,12 +34,11 @@ class PersonallInfoPage extends BasicActions {
 
     clickUpdateButton() {
         this.personalInfoFormElements.UPDATE_PERSONAL_INFO_BUTTON().click();
-        this.headerElements.ALERT_MESSAGE().should('contain.text', 'User Profile updated successfully!');
         cy.wait(3000);
     }
 
     checkProfileUserName(userName) {
-        this.headerElements.PROFILE_BUTTON().should('contain.text', userName);
+        this.personalInfoFormElements.PROFILE_BUTTON().should('contain.text', userName);
     }
     
     removeSecondChild() {
@@ -67,7 +67,6 @@ class PersonallInfoPage extends BasicActions {
         this.accountDetailElements.NEW_PASSWORD().type(newPass);
         this.accountDetailElements.CONFIM_PASSWORD().type(newPass);
         this.accountDetailElements.UPDATE_ACCOUNT_DETAILS_BUTTON().click();
-        this.headerElements.ALERT_MESSAGE().should('contain.text', 'Password updated successfully!');
     }
 //**************************************************************************************** */
 
