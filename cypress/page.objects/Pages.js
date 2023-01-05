@@ -1,12 +1,11 @@
 import LoginPage from "./LoginPage";
-import oneSecPage from "./oneSecPage";
 import VideoDetailPage from "./VideoDetailPage";
 import LandingPage from "./LandingPage";
 import SignUpPage from "./SignUpPage";
 import PersonallInfoPage from "./PersonalInfoPage";
 import BasicPage from "./BasicPage";
-import ContactUsPage from "./СontactUsPage";
 import AdminPage from "./AdminPage";
+import ContactUsPage from "./СontactUsPage";
 
 class Pages {
     static BasicPage = new BasicPage();
@@ -17,8 +16,6 @@ class Pages {
     static VideoDetailPage = new VideoDetailPage();
     static ContactUsPage = new ContactUsPage();
     static AdminPage = new AdminPage();
-    
-    static oneSecPage = new oneSecPage();
 }
 
 export default Pages;
