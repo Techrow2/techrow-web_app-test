@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-01-05T12:35:48.724Z",
+    "end": "2023-01-05T12:36:31.422Z",
+    "duration": 42698,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8e55c4ef-f982-41e5-ba89-d8daf365a5c3",
+      "title": "",
+      "fullFile": "cypress/e2e/ContactUsPageTests.cy.js",
+      "file": "cypress/e2e/ContactUsPageTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d7c8d903-686e-4a5f-8b57-cc1554f9cec8",
+          "title": "Contact Us page tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify contact us form functionality using valid credentials",
+              "fullTitle": "Contact Us page tests Verify contact us form functionality using valid credentials",
+              "timedOut": null,
+              "duration": 17366,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_Actions.default.BasicActions.navigateToPage('Contact Us');\n_Actions.default.BasicActions.verifyUrl('/portal/contact-us');\n_Pages.default.ContactUsPage.verifyContactUsElements(title, _Constants.default.validLoginEmail);\n_Pages.default.ContactUsPage.verifyQuestionFormFunctionality(info.subject, info.message);\n_Actions.default.BasicActions.verifyAlertMessage(alertMessage);\n_Pages.default.ContactUsPage.verifyFieldsAfterSendingQuestion();",
+              "err": {},
+              "uuid": "dcf1e624-b8fe-454d-ab2a-6685e96497a7",
+              "parentUUID": "d7c8d903-686e-4a5f-8b57-cc1554f9cec8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify contact us form error messages for blank subject and message fields",
+              "fullTitle": "Contact Us page tests Verify contact us form error messages for blank subject and message fields",
+              "timedOut": null,
+              "duration": 11834,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const errorMessages = ['Subject required', 'Message required'];\n_Actions.default.BasicActions.navigateToPage('Contact Us');\n_Actions.default.BasicActions.verifyUrl('/portal/contact-us');\n_Pages.default.ContactUsPage.verifyContactUsElements(title, _Constants.default.validLoginEmail);\n_Pages.default.ContactUsPage.clickSendButton();\nfor (const error of errorMessages) {\n  _Actions.default.BasicActions.verifyErrorMessage(error);\n}\n_Actions.default.BasicActions.verifyUrl('/portal/contact-us');",
+              "err": {},
+              "uuid": "b2e6c8af-0c85-4338-9660-748f153ab365",
+              "parentUUID": "d7c8d903-686e-4a5f-8b57-cc1554f9cec8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dcf1e624-b8fe-454d-ab2a-6685e96497a7",
+            "b2e6c8af-0c85-4338-9660-748f153ab365"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 29200,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Test suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "json": true,
+        "html": false,
+        "reportDir": "cypress/reports/.jsons",
+        "reportFilename": "index",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-01-05T12:53:44.425Z",
+    "end": "2023-01-05T12:54:30.317Z",
+    "duration": 45892,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b2ec0dcd-25b5-4f60-ab5a-fdf3bb7baba6",
+      "title": "",
+      "fullFile": "cypress/e2e/VideoDetailPageTests.cy.js",
+      "file": "cypress/e2e/VideoDetailPageTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c5909ba7-a463-46dc-98f2-3b89cb219222",
+          "title": "Detail page tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Detail page elements",
+              "fullTitle": "Detail page tests Verify Detail page elements",
+              "timedOut": null,
+              "duration": 43902,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/VideoDetailPageTests.cy.js/Detail page tests -- Verify Detail page elements (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "_Pages.default.LandingPage.navigateToVideoDetailPage('Africa');\n_Actions.default.BasicActions.verifyUrl('/portal/video-detail');\n_Pages.default.VideoDetailPage.verifyVideoDetailsPageElements();\n_Actions.default.BasicActions.signOut();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 25000ms: Expected to find element: `a.back-home-link`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 25000ms: Expected to find element: `a.back-home-link`, but never found it.\n    at VideoDetailPage.verifyVideoDetailsPageElements (webpack:///./cypress/page.objects/VideoDetailPage.js:13:39)\n    at Context.eval (webpack:///./cypress/e2e/VideoDetailPageTests.cy.js:16:30)",
+                "diff": null
+              },
+              "uuid": "f888dc1b-a98c-41c8-9713-df677bfba9f4",
+              "parentUUID": "c5909ba7-a463-46dc-98f2-3b89cb219222",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f888dc1b-a98c-41c8-9713-df677bfba9f4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 43902,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Test suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "json": true,
+        "html": false,
+        "reportDir": "cypress/reports/.jsons",
+        "reportFilename": "index",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-01-05T12:34:19.905Z",
+    "end": "2023-01-05T12:35:27.682Z",
+    "duration": 67777,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d2bad5ef-4d47-4d8e-8dd0-895c5ada5285",
+      "title": "",
+      "fullFile": "cypress/e2e/AdminPanelTests.cy.js",
+      "file": "cypress/e2e/AdminPanelTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "67aac9d6-051e-4947-99c2-6401e1fb4c14",
+          "title": "Admin Panel page tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Create / Delete School functionality",
+              "fullTitle": "Admin Panel page tests Verify Create / Delete School functionality",
+              "timedOut": null,
+              "duration": 26833,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_Actions.default.BasicActions.verifyUrl('/admin/school');\n_Actions.default.AdminPageActions.verifyManageSchoolPage();\n_Pages.default.AdminPage.clickOnAddSchoolButton();\n_Actions.default.BasicActions.verifyUrl('/admin/school/add');\n_Actions.default.AdminPageActions.createNewSchool(name, code, address, city, district, state, zipCode, taxeid, domain);\n_Actions.default.BasicActions.verifyAlertMessage('School has been created successfully');\n_Pages.default.AdminPage.clickOnBackLink();\n_Actions.default.BasicActions.verifyUrl('/admin/school');\n_Pages.default.AdminPage.verifyCreatedSchoolExist(name, code, address, city, district, state, zipCode, taxeid, domain);\n_Pages.default.AdminPage.deleteSchool(name);\n_Pages.default.AdminPage.clickOnConfirlDeleteButton();\n_Pages.default.AdminPage.verifyDeletedSchoolNotExist(name, code, address, city, district, state, zipCode, taxeid, domain);\n_Pages.default.AdminPage.clickOnLogoutLink();\n_Actions.default.BasicActions.verifyUrl('/admin/login');",
+              "err": {},
+              "uuid": "ea1bc118-c54e-4b86-b9d7-7d49b81819a7",
+              "parentUUID": "67aac9d6-051e-4947-99c2-6401e1fb4c14",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Manage assets functionality",
+              "fullTitle": "Admin Panel page tests Verify Manage assets functionality",
+              "timedOut": null,
+              "duration": 38441,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"/AdminPanelTests.cy.js/Admin Panel page tests -- Verify Manage assets functionality (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "_Pages.default.AdminPage.navigateTo('Manage Assets');\n_Actions.default.AdminPageActions.verifyAssetsPage();\n_Actions.default.BasicActions.verifyAlertMessage('Asset has been updated successfully');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 25000ms: Expected to find element: `video`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 25000ms: Expected to find element: `video`, but never found it.\n    at AdminPage.isVideoPresent (webpack:///./cypress/page.objects/AdminPage.js:170:20)\n    at AdminPageActions.verifyAssetsPage (webpack:///./cypress/actions/AdminPageActions.js:21:25)\n    at Context.eval (webpack:///./cypress/e2e/AdminPanelTests.cy.js:45:33)",
+                "diff": null
+              },
+              "uuid": "cc1e473a-a422-4adf-aa9b-ddea3d634d72",
+              "parentUUID": "67aac9d6-051e-4947-99c2-6401e1fb4c14",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ea1bc118-c54e-4b86-b9d7-7d49b81819a7"
+          ],
+          "failures": [
+            "cc1e473a-a422-4adf-aa9b-ddea3d634d72"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 65274,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Test suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "json": true,
+        "html": false,
+        "reportDir": "cypress/reports/.jsons",
+        "reportFilename": "index",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}

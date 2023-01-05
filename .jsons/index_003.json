@@ -1,0 +1,168 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-01-05T12:37:15.531Z",
+    "end": "2023-01-05T12:38:03.014Z",
+    "duration": 47483,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e0cf8caf-21cf-416b-935f-6a759088e5b8",
+      "title": "",
+      "fullFile": "cypress/e2e/LoginPageTests.cy.js",
+      "file": "cypress/e2e/LoginPageTests.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "082a9d4f-1db9-42cb-98ec-db2573e4f48b",
+          "title": "Login page tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Login with correct credentials",
+              "fullTitle": "Login page tests Verify Login with correct credentials",
+              "timedOut": null,
+              "duration": 15434,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_Actions.default.LoginPageActions.verifyPage();\n_Actions.default.LoginPageActions.login(_Constants.default.validLoginEmail, _Constants.default.validLoginPassword);\n_Actions.default.BasicActions.verifyUrl('/portal/my-library');\n_Actions.default.LandingPageActions.verifyUserNameDropDownList(_Constants.default.validLoginUserName);\n_Actions.default.BasicActions.signOut();",
+              "err": {},
+              "uuid": "cacda622-a0f4-46d7-803a-b9401767744c",
+              "parentUUID": "082a9d4f-1db9-42cb-98ec-db2573e4f48b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Login with incorrect email and correct password",
+              "fullTitle": "Login page tests Verify Login with incorrect email and correct password",
+              "timedOut": null,
+              "duration": 10180,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_Actions.default.LoginPageActions.verifyPage();\n_Actions.default.LoginPageActions.login('incorrect' + _Constants.default.validLoginEmail, _Constants.default.validLoginPassword);\n_Actions.default.BasicActions.verifyAlertMessage(invalidEmailMessage);\n_Actions.default.BasicActions.verifyUrl('/auth/login');",
+              "err": {},
+              "uuid": "731cded1-b9c5-444d-b06f-3d9ba61bdf8e",
+              "parentUUID": "082a9d4f-1db9-42cb-98ec-db2573e4f48b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Login with incorrect password and correct email",
+              "fullTitle": "Login page tests Verify Login with incorrect password and correct email",
+              "timedOut": null,
+              "duration": 10488,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_Actions.default.LoginPageActions.verifyPage();\n_Actions.default.LoginPageActions.login(_Constants.default.validLoginEmail, 'not' + _Constants.default.validLoginPassword);\n_Actions.default.BasicActions.verifyAlertMessage(invalidPasswordMessage);\n_Actions.default.BasicActions.verifyUrl('/auth/login');",
+              "err": {},
+              "uuid": "583ec4c5-e472-4599-a86c-3227546231a4",
+              "parentUUID": "082a9d4f-1db9-42cb-98ec-db2573e4f48b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Login with blank password and email fields",
+              "fullTitle": "Login page tests Verify Login with blank password and email fields",
+              "timedOut": null,
+              "duration": 9317,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const errorMessages = ['Email required', 'Password required'];\n_Actions.default.LoginPageActions.verifyPage();\n_Pages.default.LoginPage.clickOnLoginButton();\nfor (const error of errorMessages) {\n  _Actions.default.BasicActions.verifyErrorMessage(error);\n}\n_Actions.default.BasicActions.verifyUrl('/auth/login');",
+              "err": {},
+              "uuid": "f83a294e-da3b-4651-8116-52f47844db9a",
+              "parentUUID": "082a9d4f-1db9-42cb-98ec-db2573e4f48b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cacda622-a0f4-46d7-803a-b9401767744c",
+            "731cded1-b9c5-444d-b06f-3d9ba61bdf8e",
+            "583ec4c5-e472-4599-a86c-3227546231a4",
+            "f83a294e-da3b-4651-8116-52f47844db9a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 45419,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "index",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "reportPageTitle": "Test suite",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "saveAllAttempts": false,
+        "json": true,
+        "html": false,
+        "reportDir": "cypress/reports/.jsons",
+        "reportFilename": "index",
+        "overwrite": false
+      },
+      "version": "6.2.0"
+    }
+  }
+}
