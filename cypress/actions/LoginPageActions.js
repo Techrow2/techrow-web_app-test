@@ -13,31 +13,31 @@ class LoginPageActions extends BassicAction{
         Pages.LoginPage.verifyLoginFormElements();
     }
 
-    loginAnother(email,password,clean){
-        if(clean){
-            this.loginPage.clearEmail()
-            this.loginPage.clearPassword()
-        }
-        this.loginPage.typeEmail(email)
-        this.loginPage.typePassword(password)
-        this.loginPage.clickByLogginButton()
+    enterEmail(email) {
+        Pages.LoginPage.clickOnForgottPasswordLink();
+        Pages.LoginPage.typeEmail(email);
+        Pages.LoginPage.clickOnLoginButton();
+        Pages.LoginPage.wait(2)
     }
-    isErrorVissible(conditions){
-        if(conditions)conditions="exist"
-        else conditions="not.exist"
-        this.loginPage.isErrorVisible(conditions)
-    }
-    resetPassword(email){
-        this.loginPage.clickByForgottPassword()
-        this.loginPage.clickByBacktoLogin()
-        this.loginPage.clickByForgottPassword()
-        this.loginPage.typeEmailInForgottPage(email)
-        this.loginPage.clickBySendLink()
-        this.loginPage.wait(2)
-    }
-    newPassword(pass){
-        this.loginPage.typeNewPassword(pass)
-        this.loginPage.typeReEnterNewPassword(pass)
+
+    // loginAnother(email,password,clean){
+    //     if(clean){
+    //         this.loginPage.clearEmail()
+    //         this.loginPage.clearPassword()
+    //     }
+    //     this.loginPage.typeEmail(email)
+    //     this.loginPage.typePassword(password)
+    //     this.loginPage.clickByLogginButton()
+    // }
+    // isErrorVissible(conditions){
+    //     if(conditions)conditions="exist"
+    //     else conditions="not.exist"
+    //     this.loginPage.isErrorVisible(conditions)
+    // }
+
+    resetPassword(newPassword){
+        this.loginPage.typeNewPassword(newPassword)
+        this.loginPage.typeReEnterNewPassword(newPassword)
         this.loginPage.clickBySendLink()
         this.loginPage.wait(2)
         this.loginPage.clickByLogginButton()

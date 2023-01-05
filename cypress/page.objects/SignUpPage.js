@@ -24,13 +24,13 @@ class SignUpPage extends BassicPage {
         FIRST_NAME_LOCATOR: () => cy.get('input#formBasicFirstName'),
     }
 
-    fillSignUpFormForSchoolUsage(firstName, lastName, schoolCode, email, password) {
+    fillSignUpFormForSchoolUsage(firstName, lastName, schoolCode, email, password, repeatPass) {
         this.schoolAccountElements.FIRST_NAME_LOCATOR().type(firstName);
         this.schoolAccountElements.LAST_NAME_LOCATOR().type(lastName);
         this.schoolAccountElements.SCHOOL_CODE_LOCATOR().type(schoolCode);
         this.schoolAccountElements.EMAIL_LOCATOR().type(email);
         this.schoolAccountElements.PASSWORD_LOCATOR().type(password);
-        this.schoolAccountElements.REPEAT_PASSWORD_LOCATOR().type(password);
+        this.schoolAccountElements.REPEAT_PASSWORD_LOCATOR().type(repeatPass);
     }
 
     selectSchoolAccount() {
@@ -52,12 +52,12 @@ class SignUpPage extends BassicPage {
         REPEAT_PASSWORD_LOCATOR: () => cy.get('input[name="confirmPassword"]'),
     }
 
-    fillSignUpFormForPersonalUsage(firstName, lastName, email, password) {
+    fillSignUpFormForPersonalUsage(firstName, lastName, email, password, repeatPass) {
         this.personalAccountElements.FIRST_NAME_LOCATOR().type(firstName);
         this.personalAccountElements.LAST_NAME_LOCATOR().type(lastName);
         this.personalAccountElements.EMAIL_LOCATOR().type(email);
         this.personalAccountElements.PASSWORD_LOCATOR().type(password);
-        this.personalAccountElements.REPEAT_PASSWORD_LOCATOR().type(password);
+        this.personalAccountElements.REPEAT_PASSWORD_LOCATOR().type(repeatPass);
     }
 
     selectPersonalAccount() {

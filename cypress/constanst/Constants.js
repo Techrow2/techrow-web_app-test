@@ -1,10 +1,8 @@
 class Constants{
-static CreateAccountFor="PERSONAL USE";
+static CreateAccountFor="PERSONAL USE"
 static CreateForSchool="SCHOOL"
-static Email=""
 static SchoolCodeInSchoolSection="SIBYL"
 static SchoolNAmeInSchoolSection="Sibyl Rohan"
-static EmailForForgottPasword="wertyses"
 
 static LOGIN_URL = 'https://techrow-streaming.pages.dev/auth/login';
 static SIGN_UP_URL = 'https://techrow-streaming.pages.dev/auth/signup?step=chooseAccount';
