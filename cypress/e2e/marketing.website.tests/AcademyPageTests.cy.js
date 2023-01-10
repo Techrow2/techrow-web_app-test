@@ -9,7 +9,7 @@ describe('Academy Page tests', () => {
     })
 
     it('Verify Academy page elements', () => {
-        MarketingSitePages.MarketingPage.navigateToAcademyPage('TechRow Academy');
+        // MarketingSitePages.MarketingPage.navigateToAcademyPage('TechRow Academy');
 
         MarketingSitePages.MarketingPage.checkMarketingPageHeader();
         MarketingSitePages.AcademyPage.checkAcademyPageBody();

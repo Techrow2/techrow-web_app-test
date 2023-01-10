@@ -79,7 +79,10 @@ class MarketingPage {
     navigateToAcademyPage(pageName) {
         this.headerElements.HEADER_ITEM(pageName)
             .invoke('attr', 'href').then(href => {
-                cy.origin(href, () => {
+                const pom = {
+                    url: href.toString()
+                };
+                cy.origin(pom.url, () => {
                     cy.visit('/');
                   })
             });

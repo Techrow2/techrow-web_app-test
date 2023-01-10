@@ -8,6 +8,7 @@ const { generatePaymentCreds } = require('../support/payment.generator');
 const signUpAlertMessage = 'Sign up successfully';
 const urlPart = '/auth/signup?step=personalAccount'
 const emailErrorMessage = 'Please enter valid email';
+const passwordErrorMessage = 'Password should be at least 8 characters long and must contain at least one alphabet and one number';
 
 const user = generateUser();
 const firstName = user.firstName;
@@ -197,42 +198,42 @@ describe("Sign Up for Personal Use tests", () => {
 
 /**Negative tests for the PASSWORD / REPEAT PASSWORD field *************************************************** */
     it('A user cannot register with 7 valid characters in the password field', () => {
-        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, schoolCode, email, 'abc1234', 'abc1234');
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, email, 'abc1234', 'abc1234');
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage(passwordErrorMessage);
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
     it('A user cannot register with 9 alphabetic characters in the password field', () => {
-        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, schoolCode, email, 'asdfghjkl', 'asdfghjkl');
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, email, 'asdfghjkl', 'asdfghjkl');
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage(passwordErrorMessage);
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
     it('A user cannot register with 9 digits in the password field', () => {
-        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, schoolCode, email, '123456789', '123456789');
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, email, '123456789', '123456789');
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage(passwordErrorMessage);
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
     it('A user cannot register with 9 special symbols in the password field', () => {
-        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, schoolCode, email, '!@#$%^&*(', '!@#$%^&*(');
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, email, '!@#$%^&*(', '!@#$%^&*(');
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage(passwordErrorMessage);
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
     it('A user cannot register with Cyrillic letters in the password field', () => {
-        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, schoolCode, email, 'паролль1234', 'паролль1234');
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, email, 'паролль1234', 'паролль1234');
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage(passwordErrorMessage);
         Actions.BasicActions.verifyUrl(urlPart);
     })
 
     it('A user cannot register if password does not match the password in the repeat password feald', () => {
-        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, schoolCode, email, 'newPassword123', 'newPassword124');
+        Actions.SignUpPageActions.signUpForPersonalUsage(firstName, lastName, email, 'newPassword123', 'newPassword124');
         Pages.SignUpPage.clickCreateAccountButton();
         Actions.BasicActions.verifyErrorMessage("Re-enter password didn't match");
         Actions.BasicActions.verifyUrl(urlPart);
