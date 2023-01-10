@@ -238,5 +238,5 @@ describe("Sign Up for Personal Use tests", () => {
         Actions.BasicActions.verifyErrorMessage("Re-enter password didn't match");
         Actions.BasicActions.verifyUrl(urlPart);
     })
-/************************************************************************************************************* */
+/************************************************************************************************************** */
 })
